@@ -1,0 +1,13 @@
+# Example:
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: github-issues-name
+  labels: 
+    component: github-issues-component
+  annotations:
+    github.com/project-slug: janus-idp-test/plugin-test
+spec:
+  type: service
+  lifecycle: experimental
+  owner: team-test

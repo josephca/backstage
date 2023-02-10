@@ -157,6 +157,10 @@ import {
   LightBox,
 } from '@backstage/plugin-techdocs-module-addons-contrib';
 import { EntityCostInsightsContent } from '@backstage/plugin-cost-insights';
+import {
+  GithubIssuesCard,
+  GithubIssuesPage,
+} from '@backstage/plugin-github-issues';
 
 const customEntityFilterKind = ['Component', 'API', 'System'];
 
@@ -417,6 +421,9 @@ const serviceEntityPage = (
     <EntityLayout.Route path="/" title="Overview">
       {overviewContent}
     </EntityLayout.Route>
+    <EntityLayout.Route path="/github-issues" title="GitHub Issues">
+      <GithubIssuesPage />
+    </EntityLayout.Route>
 
     <EntityLayout.Route path="/ci-cd" title="CI/CD">
       {cicdContent}
@@ -633,6 +640,9 @@ const apiPage = (
         <Grid item md={6} xs={12}>
           <EntityAboutCard />
         </Grid>
+        <Grid item md={6}>
+          <GithubIssuesCard />
+        </Grid>
         <Grid item md={6} xs={12}>
           <EntityCatalogGraphCard variant="gridItem" height={400} />
         </Grid>
@@ -673,6 +683,9 @@ const userPage = (
             entityFilterKind={customEntityFilterKind}
           />
         </Grid>
+        <Grid item xs={12}>
+          <GithubIssuesCard />
+        </Grid>
       </Grid>
     </EntityLayout.Route>
   </EntityLayoutWrapper>
@@ -694,6 +707,9 @@ const groupPage = (
         </Grid>
         <Grid item xs={12}>
           <EntityMembersListCard />
+        </Grid>
+        <Grid item xs={12}>
+          <GithubIssuesCard />
         </Grid>
       </Grid>
     </EntityLayout.Route>
